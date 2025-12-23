@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ECommerce.Models.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+<div class="container mt-4">
+    <h1>Edit Product</h1>
+        <p>@TempData["Error"]</p>
+
+        <form asp-controller="Home" asp-action="EditProduct" method="post">
+            <input hidden asp-for="PId" class="form-control" />
+
+        <div class="mb-3">
+            <label asp-for="PName" class="form-label">Product Name</label>
+            <input asp-for="PName" class="form-control" />
+            <span asp-validation-for="PName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Product Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Product_Desc" class="form-label">Product Description</label>
+            <textarea asp-for="Product_Desc" class="form-control"></textarea>
+            <span asp-validation-for="Product_Desc" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit Product</button>
+        </form>
+</div>

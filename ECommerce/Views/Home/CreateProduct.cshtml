@@ -1,0 +1,48 @@
+﻿@model ECommerce.Models.ViewModels.CreateProductViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Create a New Product</h2>
+    @if (TempData["debug"] != null)
+    {
+        <div class="alert alert-info">@TempData["debug"]</div>
+    }
+    
+    <form asp-action="CreateProduct" asp-controller="Home" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="PName" class="form-label"></label>
+            <input asp-for="PName" class="form-control" />
+            <span asp-validation-for="PName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PImageFile" class="form-label"></label>
+            <input asp-for="PImageFile" type="file" class="form-control" />
+            <span asp-validation-for="PImageFile" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Product_Desc" class="form-label"></label>
+            <textarea asp-for="Product_Desc" class="form-control"></textarea>
+            <span asp-validation-for="Product_Desc" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Product</button>
+
+        <a asp-action="Products" asp-controller="Home" class="btn btn-secondary ms-2" role="button">
+            Back to Products
+        </a>
+
+    </form>
+</div>

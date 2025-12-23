@@ -86,18 +86,18 @@ public class HomeController : Controller
 
 
 
-    // public async Task<IActionResult> DeleteProduct(int id)
-    // {
-    //     if (id <= 0)
-    //         return BadRequest("Invalid product id.");
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        if (id <= 0)
+            return BadRequest("Invalid product id.");
 
-    //     var deleted = await _repo.DeleteProduct(id);
+        var deleted = await _repo.DeleteProduct(id);
 
-    //     if (!deleted)
-    //         return NotFound("Product not found.");
+        if (!deleted)
+            return NotFound("Product not found.");
 
-    //     return RedirectToAction("Products");
-    // }
+        return RedirectToAction("Products");
+    }
 
     public async Task<IActionResult> DeleteAllProducts()
     {
